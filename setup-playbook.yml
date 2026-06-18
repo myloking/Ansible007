@@ -1,17 +1,17 @@
 ---
--name: Basic System Setup
-hosts: web
-become: true
-tasks:
- -name: update all security-related packages
-ansible.builtin.packages:
-name: '*'
-state: latest
-security: true
+- name: Basic System Setup
+  hosts: web
+  become: true
+  tasks:
+    - name: update all security-related packages
+      ansible.builtin.packages:
+      name: '*'
+      state: latest
+      security: true
 
--name: create a new user
-ansible.builtin.user:
-name: mylo
-state: present
-create_home: true
+    - name: create a new user
+      ansible.builtin.user:
+      name: mylo
+      state: present
+      create_home: true
 
